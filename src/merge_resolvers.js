@@ -1,5 +1,8 @@
 const mergeResolvers = (resolvers, options) => {
 
+  const rootQueryName = (options !== undefined && options.rootQueryName) ? options.rootQueryName : 'Query';
+  const rootMutationName = (options !== undefined && options.rootMutationName) ? options.rootMutationName : 'Mutation';
+
   const queryResolvers = Object.assign(
     {},
     ...resolvers.map(({ queries }) => queries)
@@ -17,12 +20,12 @@ const mergeResolvers = (resolvers, options) => {
 
   return Object.assign(
     {
-      Query: queryResolvers,
-      Mutation: mutationResolvers,
+      `${rootQueryName}`: queryResolvers,
+      `${rootMutationName}`: mutationResolvers,
     },
     subQueriesResolvers
-  ); 
-  
+  );
+
 }
 
 export default mergeResolvers;

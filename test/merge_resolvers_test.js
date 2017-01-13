@@ -29,4 +29,33 @@ describe('mergeResolvers', () => {
       assert.isDefined(mergedResolvers.Product.clients, 'Merged resolvers is missing Product.clients resolver');
     });
   });
+
+  describe('with custom query and mutation type names', () => {
+    const resolvers = [clientResolver, productResolver];
+    const options = {
+      rootQueryName: 'rootQuery',
+      rootMutationName: 'rootMutation'
+    };
+
+    const mergedResolvers = mergeResolvers(resolvers, options);
+
+    it('merges all query resolvers', async () => {
+      assert.isDefined(mergedResolvers.rootQuery.clients, 'Merged resolvers is missing clients resolver');
+      assert.isDefined(mergedResolvers.rootQuery.client, 'Merged resolvers is missing client resolver');
+      assert.isDefined(mergedResolvers.rootQuery.products, 'Merged resolvers is missing products resolver');
+      assert.isDefined(mergedResolvers.rootQuery.product, 'Merged resolvers is missing product resolver');
+    });
+
+    it('merges all mutation resolvers', async () => {
+      assert.isDefined(mergedResolvers.rootMutation.create_client, 'Merged resolvers is missing create_client resolver');
+      assert.isDefined(mergedResolvers.rootMutation.update_client, 'Merged resolvers is missing update_client resolver');
+      assert.isDefined(mergedResolvers.rootMutation.create_product, 'Merged resolvers is missing create_product resolver');
+      assert.isDefined(mergedResolvers.rootMutation.update_product, 'Merged resolvers is missing update_product resolver');
+    });
+
+    it('merges all subQuery resolvers', async () => {
+      assert.isDefined(mergedResolvers.Client.products, 'Merged resolvers is missing Client.products resolver');
+      assert.isDefined(mergedResolvers.Product.clients, 'Merged resolvers is missing Product.clients resolver');
+    });
+  });
 });
