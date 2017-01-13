@@ -18,11 +18,12 @@ const mergeResolvers = (resolvers, options) => {
     ...resolvers.map(({ subQueries }) => subQueries)
   );
 
+  const resolverObject = {}
+  resolverObject[rootQueryName] = queryResolvers
+  resolverObject[rootMutationName] = mutationResolvers
+
   return Object.assign(
-    {
-      `${rootQueryName}`: queryResolvers,
-      `${rootMutationName}`: mutationResolvers,
-    },
+    resolverObject,
     subQueriesResolvers
   );
 
