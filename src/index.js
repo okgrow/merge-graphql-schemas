@@ -21,10 +21,10 @@ const mergeGraphqlSchema = (options) => {
   }
 
   const typeFiles = fileLoader(typesFolder);
-  const mergedTypes = mergeTypes(typeFiles);
+  const mergedTypes = mergeTypes(typeFiles, options);
 
   const resolverFiles = fileLoader(resolversFolder);
-  const mergedResolvers = mergeResolvers(resolverFiles);
+  const mergedResolvers = mergeResolvers(resolverFiles, options);
 
   return makeExecutableSchema(mergedTypes, mergedResolvers);
 
