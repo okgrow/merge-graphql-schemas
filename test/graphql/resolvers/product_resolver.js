@@ -1,13 +1,17 @@
-export default {
-  Query: {
-    products: () => {},
-    product: () => {},
-  },
-  Mutation: {
-    create_product: () => {},
-    update_product: () => {},
-  },
+const queries = {
+  products: () => {},
+  product: () => {},
+};
+
+const mutations = {
+  create_product: () => {},
+  update_product: () => {},
+};
+
+const subQueries = {
   Product: {
     clients: () => {},
   }
 };
+
+export { queries, mutations, subQueries };
