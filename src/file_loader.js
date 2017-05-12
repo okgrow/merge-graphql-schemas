@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+const fs = require('fs');
+const path = require('path');
 
 const fileLoader = (folderPath) => {
   const dir = folderPath; // path.join(__dirname, folderPath);
@@ -8,9 +8,9 @@ const fileLoader = (folderPath) => {
     if (f.slice(-3) !== '.js') { return; }
     const filesDir = path.join(dir, f);
     const file = require(filesDir); // eslint-disable-line
-    files.push(file.default);
+    files.push(file);
   });
   return files;
 };
 
-export default fileLoader;
+module.exports = fileLoader;

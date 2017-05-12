@@ -1,4 +1,4 @@
-import validateSchema from './validate_schema';
+const validateSchema = require('./validate_schema');
 
 const mergeTypes = (types) => {
   const sliceDefaultTypes = operation =>
@@ -90,4 +90,4 @@ const mergeTypes = (types) => {
   return [schema, ...mergedTypes];
 };
 
-export default mergeTypes;
+module.exports = mergeTypes;

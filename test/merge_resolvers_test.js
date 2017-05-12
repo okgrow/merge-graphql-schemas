@@ -1,14 +1,14 @@
-import chai from 'chai';
-import mergeResolvers from '../src/merge_resolvers';
-import clientResolvers from './graphql/resolvers/client_resolver';
-import productResolvers from './graphql/resolvers/product_resolver';
+const chai = require('chai');
+const mergeResolvers = require('../src/merge_resolvers');
+const clientResolvers = require('./graphql/resolvers/client_resolver');
+const productResolvers = require('./graphql/resolvers/product_resolver');
 
 const assert = chai.assert;
 
 describe('mergeResolvers', () => {
   describe('with default options', () => {
 
-    it('merges all query resolvers', async () => {
+    it('merges all query resolvers', () => {
       const resolvers = [clientResolvers, productResolvers];
       const mergedResolvers = mergeResolvers(resolvers);
 
@@ -19,7 +19,7 @@ describe('mergeResolvers', () => {
 
     });
 
-    it('merges all mutation resolvers', async () => {
+    it('merges all mutation resolvers', () => {
       const resolvers = [clientResolvers, productResolvers];
       const mergedResolvers = mergeResolvers(resolvers);
 
@@ -30,7 +30,7 @@ describe('mergeResolvers', () => {
 
     });
 
-    it('merges all subQuery resolvers', async () => {
+    it('merges all subQuery resolvers', () => {
       const resolvers = [clientResolvers, productResolvers];
       const mergedResolvers = mergeResolvers(resolvers);
 

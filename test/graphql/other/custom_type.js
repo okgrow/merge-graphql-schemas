@@ -1,4 +1,4 @@
-export default `
+module.exports = `
   type Custom {
     id: ID!
     name: String

@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+const gql = require('graphql-tag');
 
 const validate = (type) => {
   try {
@@ -11,7 +11,7 @@ const validate = (type) => {
   }
 };
 
-export default (schema, customTypes) => {
+module.exports = (schema, customTypes) => {
   customTypes.forEach(ct => validate(ct));
   validate(schema);
 };

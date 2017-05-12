@@ -1,4 +1,4 @@
-export default `
+module.exports = `
   type Vendor implements PersonEntity {
     id: ID!
     name: String

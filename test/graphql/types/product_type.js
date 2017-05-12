@@ -1,4 +1,4 @@
-export default `
+module.exports = `
   type Product {
     id: ID!
     description: String
