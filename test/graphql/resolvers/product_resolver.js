@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   Query: {
     products: () => {},
     product: () => {},

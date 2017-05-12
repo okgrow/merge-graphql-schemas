@@ -1,4 +1,4 @@
-export default `
+module.exports = `
   type Client {
     id: ID!
     name: String

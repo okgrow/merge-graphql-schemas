@@ -1,6 +1,6 @@
-import assert from 'assert';
-import td from 'testdouble';
-import path from 'path';
+const assert = require('assert');
+const td = require('testdouble');
+const path = require('path');
 
 
 const graphqlToolsMock = td.object(['makeExecutableSchema']);
@@ -23,13 +23,14 @@ describe('mergeGraphqlSchemas', () => {
 
   describe('passing graphql folder', () => {
 
-    it('should pass', async () => {
+    it('should pass', () => {
       mergeGraphqlSchemas(path.join(__dirname, '/graphql'));
 
       td.verify(graphqlToolsMock.makeExecutableSchema({
         typeDefs: 'mergedTypes',
         resolvers: 'mergedResolvers',
       }));
+      
     });
 
   });

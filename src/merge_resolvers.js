@@ -1,5 +1,5 @@
-import merge from 'deepmerge';
+const merge = require('deepmerge');
 
 const mergeResolvers = resolvers => merge(...resolvers);
 
-export default mergeResolvers;
+module.exports = mergeResolvers;

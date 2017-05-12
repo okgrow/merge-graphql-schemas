@@ -1,4 +1,4 @@
-export default `
+module.exports = `
     union personSearch = Client | Vendor
 
     type personQuery {

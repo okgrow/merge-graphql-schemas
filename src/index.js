@@ -1,7 +1,7 @@
-import { makeExecutableSchema } from 'graphql-tools';
-import fileLoader from './file_loader';
-import mergeTypes from './merge_types';
-import mergeResolvers from './merge_resolvers';
+const { makeExecutableSchema } = require('graphql-tools');
+const fileLoader = require('./file_loader');
+const mergeTypes = require('./merge_types');
+const mergeResolvers = require('./merge_resolvers');
 
 const mergeGraphqlSchemas = (folderPath, debug = false) => {
   const typesArray = fileLoader(`${folderPath}/types`);
@@ -18,4 +18,4 @@ const mergeGraphqlSchemas = (folderPath, debug = false) => {
   return makeExecutableSchema({ typeDefs, resolvers });
 };
 
-export { mergeGraphqlSchemas, mergeResolvers, mergeTypes };
+module.exports = { mergeGraphqlSchemas, mergeResolvers, mergeTypes };

@@ -1,4 +1,4 @@
-export default `
+module.exports = `
     interface PersonEntity {
         name: String
         age: Int
