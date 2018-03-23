@@ -1,0 +1,27 @@
+# This is the client type
+type Client {
+  # Id should be an int
+  id: Int
+  # Name should be a string
+  name: String
+}
+
+type Query {
+  # Single client query
+  clients: [Client]
+  client(id: Int, name: String): Client
+}
+
+type Mutation {
+  # Update client mutation
+  updateClient (
+    id: Int!,
+    name: String!
+  ): Client
+
+  addClient (
+    name: String!
+  ): Client
+
+  deleteClient(id: Int!): Client
+}
