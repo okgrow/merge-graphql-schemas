@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node -r @std/esm server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node -r @std/esm server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@std/esm": "^0.25.5",
     "apollo-server-express": "^1.3.2",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
     "graphql-tools": "^2.23.1",
     "merge-graphql-schemas": "^1.5.1"
   },
