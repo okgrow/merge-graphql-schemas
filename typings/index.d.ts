@@ -1,7 +1,7 @@
-import { DocumentNode, Source } from 'graphql';
+import { DocumentNode } from 'graphql';
 
 export function mergeTypes(
-  types: Array<string | Source | DocumentNode>,
+  types: Array<string | DocumentNode>,
   options?: { all: boolean }
 ): string;
 
@@ -14,4 +14,4 @@ export function fileLoader(
     extensions?: string[];
     globOptions?: object;
   }
-): Array<string | any>;
+): string[];
