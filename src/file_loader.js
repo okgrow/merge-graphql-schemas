@@ -42,6 +42,7 @@ const fileLoader = (folderPath,
   {
     recursive = false,
     extensions = DEFAULT_EXTENSIONS,
+    ignoreIndex = true,
     globOptions = {},
   } = {}) => {
   const dir = folderPath;
@@ -49,7 +50,7 @@ const fileLoader = (folderPath,
 
   const files = schemafiles
         .map(f => ({ f, pathObj: path.parse(f) }))
-        .filter(({ pathObj }) => pathObj.name.toLowerCase() !== 'index')
+        .filter(({ pathObj }) => (ignoreIndex ? pathObj.name.toLowerCase() !== 'index' : true))
         .filter(({ pathObj }) => extensions.includes(pathObj.ext))
         .map(({ f, pathObj }) => {
           let returnVal;

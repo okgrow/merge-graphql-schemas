@@ -12,6 +12,7 @@ export function fileLoader(
   options?: {
     recursive?: boolean;
     extensions?: string[];
+    ignoreIndex: boolean;
     globOptions?: object;
   }
 ): Array<string | any>;
