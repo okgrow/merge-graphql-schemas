@@ -1,4 +1,5 @@
 import { DocumentNode, Source } from 'graphql';
+import { IOptions } from 'glob';
 
 export function mergeTypes(
   types: Array<string | Source | DocumentNode>,
@@ -12,6 +13,6 @@ export function fileLoader(
   options?: {
     recursive?: boolean;
     extensions?: string[];
-    globOptions?: object;
+    globOptions?: IOptions;
   }
 ): Array<string | any>;
