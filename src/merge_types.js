@@ -156,7 +156,7 @@ const mergeTypes = (types, options = { all: false }) => {
       return type;
     })
     .map(ast => ast.definitions)
-    .reduce((defs, newDef) => [...defs, ...newDef], []);
+    .reduce((defs, newDef = []) => [...defs, ...newDef], []);
 
   const mergedDefs = _makeMergedDefinitions(allDefs, options.all);
   const rest = _addCommentsToAST(_makeRestDefinitions(allDefs, options.all), false)
