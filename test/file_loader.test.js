@@ -18,7 +18,12 @@ const raw3Type = fs.readFileSync(`${__dirname}/graphql/type_with_other_scripts/g
 describe('fileLoader', () => {
   it('loads all files from specified folder', () => {
     const types = [
-      clientType, personEntityType, personSearchType, productType, rawType, vendorType,
+      clientType,
+      personEntityType,
+      personSearchType,
+      productType,
+      rawType,
+      vendorType,
     ];
 
     const loadedTypes = fileLoader(path.join(__dirname, 'graphql/types'));
@@ -35,7 +40,14 @@ describe('fileLoader', () => {
 
   it('loads all files recursively from specified folder', () => {
     const types = [
-      contactType, raw2Type, clientType, personEntityType, personSearchType, productType, rawType, vendorType,
+      contactType,
+      raw2Type,
+      clientType,
+      personEntityType,
+      personSearchType,
+      productType,
+      rawType,
+      vendorType,
     ];
 
     const loadedTypes = fileLoader(path.join(__dirname, 'graphql/types'), { recursive: true });
@@ -44,9 +56,7 @@ describe('fileLoader', () => {
   });
 
   it('loads all files from specified folder with ext .js', () => {
-    const types = [
-      clientType, personEntityType, personSearchType, productType, vendorType,
-    ];
+    const types = [clientType, personEntityType, personSearchType, productType, vendorType];
 
     const loadedTypes = fileLoader(path.join(__dirname, 'graphql/types'), { extensions: ['.js'] });
 
@@ -54,31 +64,27 @@ describe('fileLoader', () => {
   });
 
   it('loads all files from specified folder with ext .graphqls', () => {
-    const types = [
-      rawType,
-    ];
+    const types = [rawType];
 
-    const loadedTypes = fileLoader(path.join(__dirname, 'graphql/types'), { extensions: ['.graphqls'] });
+    const loadedTypes = fileLoader(path.join(__dirname, 'graphql/types'), {
+      extensions: ['.graphqls'],
+    });
 
     expect(loadedTypes).toEqual(types);
   });
 
   it('unexpected extension should be ignored', () => {
-    const types = [
-      rawType,
-    ];
+    const types = [rawType];
 
-    const loadedTypes = fileLoader(path.join(__dirname, 'graphql/types'), { extensions: ['.graphqls', '.txt'] });
+    const loadedTypes = fileLoader(path.join(__dirname, 'graphql/types'), {
+      extensions: ['.graphqls', '.txt'],
+    });
 
     expect(loadedTypes).toEqual(types);
   });
 
   it('loads all files from glob pattern of ext .graphqls or .gql', () => {
-    const types = [
-      raw3Type,
-      raw2Type,
-      rawType,
-    ];
+    const types = [raw3Type, raw2Type, rawType];
 
     const loadedTypes = fileLoader(path.join(__dirname, 'graphql/**/*.+(graphqls|gql)'));
 
