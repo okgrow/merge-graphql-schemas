@@ -198,10 +198,8 @@ Given the file structure below:
 Here's how your `index` file could look like:
 
 ```js
-const path = require('path')
-const mergeGraphqlSchemas = require('merge-graphql-schemas')
-const fileLoader = mergeGraphqlSchemas.fileLoader
-const mergeTypes = mergeGraphqlSchemas.mergeTypes
+import path from 'path'
+import { fileLoader, mergeTypes } from 'merge-graphql-schemas'
 
 const typesArray = fileLoader(path.join(__dirname, '.'), { recursive: true })
 
@@ -225,10 +223,8 @@ Given the file structure below:
 Here's how your `index` file could look like:
 
 ```js
-const path = require('path')
-const mergeGraphqlSchemas = require('merge-graphql-schemas')
-const fileLoader = mergeGraphqlSchemas.fileLoader
-const mergeTypes = mergeGraphqlSchemas.mergeTypes
+import path from 'path'
+import { fileLoader, mergeTypes } from 'merge-graphql-schemas'
 
 const typesArray = fileLoader(path.join(__dirname, 'graphql/**/*.graphql'))
 
