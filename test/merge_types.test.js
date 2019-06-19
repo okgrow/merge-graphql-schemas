@@ -789,15 +789,15 @@ describe('mergeTypes', () => {
 
     const mergedTypes = mergeTypes(types);
 
-    const expectedClientType = normalizeWhitespace(/* GraphQL */ `
+    const expectedClientType = normalizeWhitespace(`
       type Query {
         users(
+          
           # filter user by name
-          name: String
+          name: String,
 
           # limit for pagination
-          limit: Int
-        ): [User]
+          limit: Int): [User]
       }
     `);
 
