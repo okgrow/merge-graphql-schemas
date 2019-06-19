@@ -60,6 +60,7 @@
     "eslint-plugin-react": "^7.11.1",
     "graphql": "^14.0.2",
     "jest": "^23.6.0",
+    "jest-junit": "6.4.0",
     "rollup": "^0.67.1",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.2.0",
@@ -69,5 +70,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "jest-junit": {
+    "outputDirectory": "test-results"
   }
 }
