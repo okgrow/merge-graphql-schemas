@@ -653,7 +653,13 @@ describe('mergeTypes', () => {
   });
 
   it('includes UNION type', () => {
-    const types = [clientType, productType, vendorType, personEntityType, personSearchType];
+    const types = [
+      clientType,
+      productType,
+      vendorType,
+      personEntityType,
+      personSearchType,
+    ];
     const mergedTypes = mergeTypes(types);
     const expectedScalarType = normalizeWhitespace(`
       union personSearch = Client | Vendor
@@ -755,6 +761,126 @@ describe('mergeTypes', () => {
       }
       `);
 
+    const separateTypes = normalizeWhitespace(mergedTypes);
+
+    expect(separateTypes).toContain(expectedClientType);
+  });
+
+  it('keep comments that are on top of arguments - #136', () => {
+    const types = [
+      /* GraphQL */ `
+        type Query {
+          users(
+            # filter user by name
+            name: String
+
+            # limit for pagination
+            limit: Int
+          ): [User]
+        }
+      `,
+      /* GraphQL */ `
+        type User {
+          id: ID!
+          name: String!
+        }
+      `,
+    ];
+
+    const mergedTypes = mergeTypes(types);
+
+    const expectedClientType = normalizeWhitespace(/* GraphQL */ `
+      type Query {
+        users(
+          # filter user by name
+          name: String
+
+          # limit for pagination
+          limit: Int
+        ): [User]
+      }
+    `);
+
+    const separateTypes = normalizeWhitespace(mergedTypes);
+
+    expect(separateTypes).toContain(expectedClientType);
+  });
+
+  it('should deduplicate scalars - #158', () => {
+    const types = [
+      /* GraphQL */ `
+        scalar Json
+
+        type User {
+          id: ID!
+          data: Json
+        }
+      `,
+      /* GraphQL */ `
+        scalar Json
+
+        type Resource {
+          id: ID!
+          data: Json
+        }
+      `,
+    ];
+    const mergedTypes = mergeTypes(types);
+
+    expect(mergedTypes.match(/scalar Json/g)).toHaveLength(1);
+  });
+
+  it('should merge enums - #179', () => {
+    const types = [
+      /* GraphQL */ `
+        enum Food {
+          BURGER
+        }
+      `,
+      /* GraphQL */ `
+        enum Food {
+          PIZZA
+        }
+      `,
+    ];
+
+    const mergedTypes = mergeTypes(types);
+    const expectedClientType = normalizeWhitespace(/* GraphQL */ `
+      enum Food {
+        BURGER
+        PIZZA
+      }
+    `);
+    const separateTypes = normalizeWhitespace(mergedTypes);
+
+    expect(separateTypes).toContain(expectedClientType);
+  });
+
+  it('should merge directives on object - #182', () => {
+    const types = [
+      /* GraphQL */ `
+        directive @addId on OBJECT
+
+        type User @addId {
+          name: String!
+        }
+      `,
+      /* GraphQL */ `
+        directive @addCreatedAt on OBJECT
+
+        type User @addCreatedAt {
+          email: String!
+        }
+      `,
+    ];
+
+    const mergedTypes = mergeTypes(types);
+    const expectedClientType = normalizeWhitespace(/* GraphQL */ `
+      type User @addCreatedAt @addId {
+        name: String!
+        email: String!
+      }
+    `);
     const separateTypes = normalizeWhitespace(mergedTypes);
 
     expect(separateTypes).toContain(expectedClientType);
