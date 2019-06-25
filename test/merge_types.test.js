@@ -40,6 +40,17 @@ describe('mergeTypes', () => {
       expect(schema).toContain(expectedSchemaType);
     });
 
+    it('does not return minimal schema (on demand)', () => {
+      const types = [];
+      const mergedTypes = mergeTypes(types, { schemaDefinition: false });
+      const expectedSchemaType = normalizeWhitespace(`
+        schema { query: Query }
+      `);
+      const schema = normalizeWhitespace(mergedTypes);
+
+      expect(schema).not.toContain(expectedSchemaType);
+    });
+
     // KAMIL: I don't think we should produce it
     it('returns empty query type', () => {
       const types = [];
