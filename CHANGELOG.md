@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.7.0]
 ### Added
  - Merges field's arguments [PR #189](https://github.com/ardatan/graphql-toolkit/pull/189)
  - Prefers NonNullable over Nullable [PR #189](https://github.com/ardatan/graphql-toolkit/pull/189)
