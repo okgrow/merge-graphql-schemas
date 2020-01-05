@@ -148,10 +148,10 @@
     aggregate-error "3.0.1"
     lodash "4.17.15"
 
-"@graphql-toolkit/file-loading@0.8.1":
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/@graphql-toolkit/file-loading/-/file-loading-0.8.1.tgz#542b51a0b915493f2ee47e1cdeec6f4011905391"
-  integrity sha512-Yx94MNbk6KUfd719pmcEHJd/NPOwo/h0YIQl6Na3U3RNueJQBHANg3whYOZio5hHaJ9q3o2/C2RGNLI5ym+mYQ==
+"@graphql-toolkit/file-loading@0.8.2-alpha-eaf33e5.3+eaf33e5":
+  version "0.8.2-alpha-eaf33e5.3"
+  resolved "https://registry.yarnpkg.com/@graphql-toolkit/file-loading/-/file-loading-0.8.2-alpha-eaf33e5.3.tgz#41869b4ab4e3472443217dd0b67a5e6cd8a566bd"
+  integrity sha512-9BsAKjZZ+RYdTIRSOmL1eBeAN7GHKAzgI3A7Ysq96Wnbzlpj90luChnR6JYLBBN7PE8Rnx8Bvyc1nwBhvBoPuw==
   dependencies:
     globby "10.0.1"
     unixify "1.0.0"
