@@ -160,7 +160,7 @@ const typesArray = fileLoader(path.join(__dirname, './types'));
 
 export default mergeTypes(typesArray, { all: true });
 ```
-When using the `fileLoader` function you can also implement your type definitions using `.graphql` or `.graphqls` files.
+When using the `fileLoader` function you can also implement your type definitions using `.graphql` or `.gql` or `.graphqls` files.
 
 > The `fileLoader` function will by default ignore files named `index.js` or `index.ts` (use `{ignoreIndex: false}` option to change this behavior). This allows you to create your index file inside the actual types folder if desired.
 
