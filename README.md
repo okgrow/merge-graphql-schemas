@@ -1,6 +1,6 @@
 ![merge](https://user-images.githubusercontent.com/25294569/64980375-6322f080-d8c2-11e9-8cc0-34bec066f095.gif)
 
-[![CircleCI](https://circleci.com/gh/Urigo/merge-graphql-schemas.svg?style=svg)](https://circleci.com/gh/Urigo/merge-graphql-schemas)
+![CI](https://github.com/Urigo/merge-graphql-schemas/workflows/CI/badge.svg)
 [![npm version](https://img.shields.io/npm/v/merge-graphql-schemas.svg?style=flat-square)](https://www.npmjs.com/package/merge-graphql-schemas)
 [![Discord Chat](https://img.shields.io/discord/625400653321076807)](https://discord.gg/xud7bH9)
 [![npm downloads](https://img.shields.io/npm/dm/merge-graphql-schemas.svg?style=flat-square)](https://www.npmjs.com/package/merge-graphql-schemas)
