@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@types/jest": "25.2.3",
-    "bob-the-bundler": "0.3.4",
+    "bob-the-bundler": "1.0.1",
     "graphql": "15.0.0",
     "jest": "25.5.4",
     "ts-jest": "25.5.1",
