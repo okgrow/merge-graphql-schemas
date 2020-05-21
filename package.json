@@ -49,7 +49,7 @@
     "bob-the-bundler": "1.0.1",
     "graphql": "15.0.0",
     "jest": "25.5.4",
-    "ts-jest": "25.5.1",
+    "ts-jest": "26.0.0",
     "typescript": "3.9.3"
   },
   "publishConfig": {
